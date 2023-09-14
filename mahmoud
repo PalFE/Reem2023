@@ -1,0 +1,48 @@
+
+Engineering documentation | PAL-ARM Team| Palestine 
+
+
+This warehouse contains an autonomous vehicle prototype from, Palestine, participating in the WRO Future Engineers competition in the 2023 season. It is an annual competition organized by WRO. It is a nonprofit organization that invests all its returns in supporting such technological competitions. In this year, the tasks concept focuses on designing a self-driving robot according to specific standards using certain equipment. This kind of competition encourages students to invent and solve problems. Therefore, we participate to know more about robots and coding, also to win for the name of our country Palestine.
+
+
+Group members
+Adam Jihad Badwan , Email: 423004928@jsub.edu.ps 
+Reem Al-Bader , Email : 427227954@jsub.edu.ps
+
+
+Repository overview
+•	chassis - This folder contains details of the chassis we used
+•	models - contains 3D printable files designed by us
+•	schemes - contains electrical system diagrams
+
+
+
+•	src - contains the main programs and control programs
+•	photos It contains one serious and one funny photo
+•	photos Contains images of the robot from all required direction
+
+
+Program arrangement and layout of algorithms:
+The robot works on an ESP32-based development board called the K210 board made in China. It is used to see red/green obstacles. Ultrasonic is used to avoid crowding within the boundaries of the ring and obstacles, and a timer is programmed to stop in the appropriate place.
+
+When the robot is powered on the battery for the first time, it initializes the chip and starts communicating with the Huskylens sensor and IMU. Once it is ready, the servo motor is centered and waits for the user to press the button. The code is then divided into two main parts.
+
+Part 1:  Complete the run as quickly as possible and stand at the starting point:
+In this part, we set the robot's speed to 150 and set the counter to 585 so that (current counter * required speed% required speed = appropriate counter)
+
+Avoid the wall:
+In the first round, two Ultrasonics measure and compare the distance. If the distance is greater at the ultrasonic (right), the robot moves to the left and vice versa.
+
+
+
+Avoid obstacles:
+When the camera detects an object, the K210 panel gets the color of the object. The robot follows the obstacle and then goes around it (follows red and green obstacles). Once it reaches an initial distance of less than 30 cm, it turns the front wheel proportionally to the distance of the object.
+
+Wall collision protection:
+
+When the ultrasonic is compared from one side, it rotates the servo in the other direction for a few milliseconds to prevent the robot from crashing into the wall.
+
+Electrical systems design: 
+We carefully selected the best possible parts for our robot after several hundred hours of research and development and tried to achieve the highest efficiency and reliability possible. The design of electrical systems is explained in the following paragraph.
+
+
